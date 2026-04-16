@@ -1,0 +1,293 @@
+/* Aqui estou criando um padrão de estilo para toda a página, removendo as margens e os preenchimentos padrão dos elementos, e usando o box-sizing para garantir que as larguras e alturas sejam calculadas de forma mais intuitiva, incluindo as bordas e os preenchimentos dentro do tamanho total do elemento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Usei a tag "flex" para criar um layout flexível no cabeçalho, e usei as propriedades "justify-content" e "align-items" para alinhar os elementos dentro do cabeçalho de forma adequada, e usei a propriedade "position: sticky" para manter o cabeçalho fixo no topo da página quando o usuário rolar para baixo, pra que sempre tenha acesso ao menu de navegação. Adicionei "z-index: 100" para garantir que o cabeçalho fique sempre acima de outros elementos (como botões de projetos) quando rolam pela página, evitando que o conteúdo passe por cima dele */
+header {
+    color: rgb(229, 231, 235);
+    background-color: #0a0a23;
+    margin: 0 0 0 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Header-top organiza o título e o botão de tema em coluna */
+.header-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Estilo do botão de alternar tema abaixo do nome */
+.alt-tema {
+    border: 1px solid #f5f6f7;
+    background-color: transparent;
+    color: #f5f6f7;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover deixa o botão mais visível ao passar o mouse */
+.alt-tema:hover {
+    background-color: rgba(245, 246, 247, 0.1);
+}
+
+body {
+    background-color: #1b1b32;
+}
+
+/* Decidi deixar o modo escuro como padrão, pois acho que combina mais com o estilo do portfólio, e criei um botão para alternar entre os temas, então usei a classe "light-mode" para aplicar as regras de estilo do modo claro quando o usuário clicar no botão de alternância de tema, e usei a propriedade "background-color" para definir a cor de fundo do modo claro, e a propriedade "color" para definir a cor do texto no modo claro, garantindo que o conteúdo fique legível e visualmente agradável em ambos os temas */
+body.light-mode {
+    background-color: #e8ebf3;
+    color: #222733;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.light-mode header {
+    background-color: #dfe3ec;
+    color: #1f2634;
+}
+
+body.light-mode main {
+    background-color: #eef1f9;
+    color: #222733;
+    border-color: #ccd2df;
+}
+
+body.light-mode .titulos {
+    color: #2f3a55;
+}
+
+body.light-mode .conteudo,
+body.light-mode .gancho,
+body.light-mode .local,
+body.light-mode .subtxt,
+body.light-mode .nome {
+    color: #2a3240;
+}
+
+body.light-mode .navbtn {
+    border-color: #6b7388;
+}
+
+body.light-mode .navbtn a:link,
+body.light-mode .navbtn a:visited {
+    color: #1f2634;
+}
+
+body.light-mode .alt-tema {
+    border-color: #1f2634;
+    color: #1f2634;
+    background-color: rgba(31, 38, 52, 0.08);
+}
+
+body.light-mode .alt-tema:hover {
+    background-color: rgba(31, 38, 52, 0.12);
+}
+
+body.light-mode form label {
+    color: #2a3240;
+}
+
+body.light-mode form input,
+body.light-mode form textarea {
+    border-color: #7a8091;
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #2a3240;
+}
+
+body.light-mode form input::placeholder,
+body.light-mode form textarea::placeholder {
+    color: #6c7080;
+}
+
+.lista{
+    list-style: none;
+    line-height: 1.5;
+    padding-right: 1rem;
+}
+/* Sempre tento utilizar os espaçamentos com "rem" para garantir que o layout seja mais responsivo e se adapte melhor a diferentes tamanhos de tela */
+main {
+    border: 2px solid #e5e5eb;
+    color: #f5f6f7;
+    padding: 0 1rem 1.5rem 1rem;    
+    margin: 2rem 20rem 2rem 20rem;
+    background-color: #0a0a23;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+/* Todos os titulos seguem o mesmo padrão de estilo, então usei a classe "titulos" para estilizar os títulos de forma padronizada, e usei a propriedade "scroll-margin-top" para garantir que os títulos das seções fiquem visíveis quando o usuário clicar nos links de navegação, evitando que fiquem escondidos atrás do cabeçalho fixo que tem a característica de ser sticky */
+.titulos {
+    padding: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: rgb(229, 231, 235);
+    margin-top: 1rem;
+    scroll-margin-top: 12rem;  
+}
+
+.nome {
+    font-size: 1.7rem;
+}
+
+.subtxt{
+    font-size: 1.2rem;
+    margin: 0.1875rem 0 1rem 0;
+}
+
+.local {
+    margin-top: 1rem;
+}
+
+.conteudo{
+    padding: 0 1rem;
+    margin: 1.2rem 0 1.2rem 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+/* Aqui usei a fonte "montserrat" que importei do google fonts para criar um destaque visual na frase de impacto, e usei a propriedade "text-align: center" para centralizar o texto, e usei a propriedade "margin" para criar um espaçamento vertical entre a frase de impacto e os outros elementos da página */
+.gancho {
+    font-family: montserrat, roboto;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 1.5625rem 0 1.5625rem 0;
+}
+/* Usei a classe "separa" para criar um layout flexível que separa os elementos dentro da seção de atuação profissional, e usei a propriedade "justify-content: space-between" para garantir que os elementos fiquem separados de forma adequada, criando um layout mais organizado e visualmente agradável */
+.separa {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Aqui foi a parte mais difícil, pois queria criar um efeito de clique nos botões de navegação, então usei a pseudo-classe "::before" para criar um elemento antes do conteúdo do botão, e usei a propriedade "background: radial-gradient" para criar um efeito de onda que se expande a partir do centro do botão quando o usuário passa o mouse sobre ele, e usei a propriedade "transition" para suavizar a animação do efeito de clique */
+.navbtn {
+    width: 100%;
+    border: solid 1px #f5f6f7;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    text-align: center;
+    vertical-align: middle;  
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbtn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.25;
+}
+
+
+.navbtn:hover::before {
+    opacity: 0.85;
+    transform: scale(1.15);
+}
+
+/* Aqui simplesmente estilizei os links dentro dos botões de navegação para remover o sublinhado e definir a cor do texto, garantindo que os links fiquem visualmente integrados com os botões */
+.navbtn a:link, .navbtn a:visited {
+    text-decoration: none;
+    color: #f5f6f7;
+}
+
+.funcao{
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+h4 {
+    margin-bottom: 0.5rem;
+}
+
+.contribuicoes {
+    margin: 0 0 1rem 1rem;   
+}
+
+.contri{
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+#rede {
+    margin: 0 2.5rem;
+    text-decoration: none;
+    color: #f5f6f7; 
+    transition: text-shadow 0.5s ease;
+}
+/* Coloquei duas vezes a propriedade "text-shadow" para criar um efeito de brilho mais intenso quando o usuário passa o mouse sobre o link, sem isso ficou sutil demais, nao chamaria atenção suficiente. e usei a propriedade "transition" para suavizar a animação do efeito de brilho */
+#rede:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1),
+                 0 0 25px rgba(255, 255, 255, 0.6); 
+}
+
+/* Aqui estilizei o formulário como um todo. Usei "display: flex" com "flex-direction: column" para fazer todos os elementos (labels, inputs, textarea, button) ficarem em blocos verticais um abaixo do outro, ao invés de ficarem lado a lado. Adicionei "gap" para criar espaçamento uniforme entre os elementos */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Adicionei "display: block" para garantir que cada label ocupe uma linha inteira, e "font-weight: bold" para deixar o texto em negrito e mais destacado visualmente */
+form label {
+    display: block;
+    font-weight: bold;
+    color: #f5f6f7;
+    margin-bottom: 0.5rem;
+}
+
+/* Aqui estilizei os inputs (campos de texto e email) para ocuparem toda a largura disponível do formulário. Usei "width: 100%" para expandir o input horizontalmente, "padding" para criar espaço interno, "border" para adicionar uma borda branca, "border-radius" para cantos arredondados, e "background-color" com um tom semitransparente para deixar visível mas integrado com o tema escuro */
+form input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #f5f6f7;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f5f6f7;
+    font-size: 1rem;
+}
+
+/* Aqui estilizei a textarea de forma similar aos inputs, mas com uma altura maior usando "min-height" para que o usuário tenha mais espaço para escrever. Também adicionei "resize: vertical" para permitir que o usuário redimensione apenas na altura, não na largura */
+form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #f5f6f7;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f5f6f7;
+    font-size: 1rem;
+    min-height: 8rem;
+    resize: vertical;
+}
+
+/* Aqui estilizei o botão de envio. Usei "margin-top" para criar espaço entre o textarea e o botão, e "cursor: pointer" para mudar o cursor do mouse quando passa sobre o botão, indicando que é clicável */
+form button {
+    margin-top: 1rem;
+    cursor: pointer;
+}
+/* Precisei pensar bastante em como criar um layout de rodapé que fosse visualmente agradável e funcional, então usei a tag "footer" para criar o rodapé, e usei a propriedade "text-align: center" para centralizar o texto, e usei a propriedade "padding" para criar um espaçamento vertical entre o conteúdo do rodapé e as bordas do elemento, garantindo que o conteúdo fique bem distribuído dentro do rodapé */
+footer {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #0a0a23;
+    padding: 1rem 0 1rem 0;
+    color: rgb(229, 231, 235);
+}
+
