@@ -302,41 +302,68 @@ footer {
     color: rgb(229, 231, 235);
 }
 
-/* --- RESPONSIVIDADE (MOBILE FIRST) --- */
+/* --- Responsividade para celular e tablet --- */
 
+/* Ajuste para Tablet (Telas médias) */
 @media (max-width: 1024px) {
-    /* No tablet e celular, removemos as margens de 20rem para o conteúdo respirar */
     main {
-        margin: 1rem 1rem;
-        padding: 1rem;
+        margin: 2rem 5rem; /* Reduz a margem lateral de 20 para 5rem */
+        width: auto;
     }
 }
 
+/* Ajuste para Celular (Telas pequenas) */
 @media (max-width: 768px) {
-    /* Ajustes específicos para celular */
+    /* 1. Resetar o Main: Expande o quadro para ocupar a tela do celular */
+    main {
+        margin: 1rem 5% !important; 
+        width: 90% !important;     
+        padding: 1rem;
+        border-width: 1px;         
+    }
+
+    /* 2. Ajustar o Header: Organiza o nome e os botões */
     header {
         flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+        padding: 1rem;
+        height: auto;
     }
 
-    .separa {
-        flex-direction: column; /* Datas ficam abaixo do nome da empresa no celular */
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    header nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
         gap: 0.5rem;
+        width: 100%;
     }
 
+    .header-top {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* 3. Ajustar o conteúdo interno */
     .nome {
-        font-size: 1.4rem; /* Diminui um pouco o título para não quebrar linha feio */
+        font-size: 1.3rem; 
+        word-wrap: break-word; 
     }
 
     section {
-        /* No celular, o 100vh pode ser perigoso se o texto for longo. 
-           O min-height garante que caiba tudo se o texto crescer. */
-        min-height: 100vh;
-        height: auto; 
+        min-height: auto; /* Evita que seções vazias fiquem gigantes no celular */
+        padding: 2rem 0;
     }
-    
-    .titulos {
-        scroll-margin-top: 15rem; /* Ajuste para o header que fica maior no celular */
+
+    .separa {
+        flex-direction: column; /* Data fica embaixo do cargo */
+        align-items: flex-start;
+    }
+
+    .navbtn {
+        width: 100%; /* O botão ocupa todo o espaço da coluna da grade */
     }
 }
