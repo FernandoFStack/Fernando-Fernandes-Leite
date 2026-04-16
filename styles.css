@@ -4,6 +4,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Aplicando 100vh em cada seção para que ocupem a tela inteira */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente na tela */
+    padding: 2rem 0;
+}
+
+
 /* Usei a tag "flex" para criar um layout flexível no cabeçalho, e usei as propriedades "justify-content" e "align-items" para alinhar os elementos dentro do cabeçalho de forma adequada, e usei a propriedade "position: sticky" para manter o cabeçalho fixo no topo da página quando o usuário rolar para baixo, pra que sempre tenha acesso ao menu de navegação. Adicionei "z-index: 100" para garantir que o cabeçalho fique sempre acima de outros elementos (como botões de projetos) quando rolam pela página, evitando que o conteúdo passe por cima dele */
 header {
     color: rgb(229, 231, 235);
@@ -291,3 +302,41 @@ footer {
     color: rgb(229, 231, 235);
 }
 
+/* --- RESPONSIVIDADE (MOBILE FIRST) --- */
+
+@media (max-width: 1024px) {
+    /* No tablet e celular, removemos as margens de 20rem para o conteúdo respirar */
+    main {
+        margin: 1rem 1rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes específicos para celular */
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .separa {
+        flex-direction: column; /* Datas ficam abaixo do nome da empresa no celular */
+        gap: 0.5rem;
+    }
+
+    .nome {
+        font-size: 1.4rem; /* Diminui um pouco o título para não quebrar linha feio */
+    }
+
+    section {
+        /* No celular, o 100vh pode ser perigoso se o texto for longo. 
+           O min-height garante que caiba tudo se o texto crescer. */
+        min-height: 100vh;
+        height: auto; 
+    }
+    
+    .titulos {
+        scroll-margin-top: 15rem; /* Ajuste para o header que fica maior no celular */
+    }
+}
